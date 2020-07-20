@@ -97,6 +97,39 @@ console.log(y);//[0,1,7,8,9]显示原数组中的数值被剔除掉了
 
 ```
 
+## 数组的原型是数组
 
+```
+Array.isArray( Array.prototype )
 
+答案：true
+解析：Array.prototype是一个数组
+数组的原型是数组，对象的原型是对象，函数的原型是函数
+```
+
+```
+//man 对象
+
+const  man = new Person();
+
+一：基本概念
+prototype(原型对象：只有函数才有的，是属性的集合) 
+_proto_(每个对象都有，指向原型对象的指针，指针链就是原型链)
+
+一：两条原型链
+function Person(){
+
+}
+man._proto_    指向   Person.prototype
+
+Person.prototype._proto_   指向  Object.prototype
+Object.prototype._proto_   = null   (终点)
+
+一：构造函数执行
+constructor（指向构造函数）
+
+Person.prototype.constructor 指向 Person
+Object.prototype.constructor 指向 Object
+
+```
 
