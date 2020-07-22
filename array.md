@@ -5,7 +5,10 @@
 在Js中数组存在两种形式：  
 一种是与C/C++等相同的在`连续内存`中存放数据的快数组，另一种是`HashTable`结构的慢数组.
 
+浅析v8中array.js：
+https://juejin.im/post/5f02e7725188252e8272cd47
 
+写的还不错
 ```
 var arr = []; // 快数组
 var arr = Array(100);
@@ -57,7 +60,7 @@ console.log(arr, mapArr);
 
 ```
 
-### 实现一个map
+### 简单实现一个map
 
 ```
 Array.prototype.map1 = function (callback){	
@@ -108,32 +111,3 @@ Array.isArray( Array.prototype )
 
 Function.prototype.__proto__ ===    Array.prototype.__proto__ === Object.prototype  // 这就是原型链
 ```
-
-```
-//man 对象
-
-const  man = new Person();
-
-一：基本概念
-prototype(只有方法才有，是属性的集合,使您有能力向对象添加属性和方法。) 
-_proto_(每个对象都有，指向原型对象的指针，指针链就是原型链)
-
-一：两条原型链
-function Person(){
-
-}
-var man = new Person();
-Person.prototype.name='cy'
-man._proto_    指向   Person.prototype
-
-Person.prototype._proto_   指向  Object.prototype
-Object.prototype._proto_   = null   (终点)
-
-一：构造函数执行
-constructor（指向构造函数）
-
-Person.prototype.constructor 指向 Person
-Object.prototype.constructor 指向 Object
-
-```
-
